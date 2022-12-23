@@ -1,0 +1,80 @@
+.mob-table {
+    width: 1500px;
+    padding: 20px 25px;
+    background-color: antiquewhite;
+    margin: 30px 0px;
+    border-radius: 3px;
+
+}
+
+
+.headers {
+    background-color: rgb(78, 78, 106);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+
+}
+
+.add {
+    background-color: rgb(22, 166, 22);
+    color: white;
+}
+
+.btn-primary {
+    background-color: blue;
+
+}
+
+/* th{text-align: center;} */
+
+
+/* form css */
+
+
+
+.form-wrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.mobile-form {
+    background-color: white;
+    color: black;
+    width: 600px;
+    padding: 20px 50px;
+    border-radius: 20px;
+}
+
+.group {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.group label {
+    width: 70px;
+    line-height: 40px;
+    height: 40px;
+}
+
+.form-control {
+    width: 90%;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 20px;
+}

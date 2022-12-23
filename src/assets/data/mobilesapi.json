@@ -1,0 +1,7 @@
+[
+    {"id":1, "username": "swarna", "email": "swarna@123", "password_digest": "swarna23456"},
+    {"id":2, "username": "sandep", "email": "sandeep@123", "password_digest": "swarna23456" },
+    { "id":3,"username": "kavitha", "email": "kavitha@123", "password_digest": "swarna23456" },
+    { "id":4,"username": "shankar", "email": "shankar@123", "password_digest": "swarna23456"}
+  
+  ]

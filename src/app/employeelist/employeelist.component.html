@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <h1>CRUD</h1>
+    <h2> Employee List</h2>
+
+
+    <div *ngIf="employees; else err"  class="container mob-table">
+      <!--<div *ngIf="employees; else err" class="container mob-table"> ab -->
+      <div class="headers">
+        <h2 class="table-tilte">Manage Mobiles</h2>
+        <button class="btn add" (click)="openForm()">Add Mobile</button>
+        <!-- <button class="btn add" (click)="show()">show Mobile</button> -->
+
+      </div>
+
+      <table class="table">
+        <thead  class="text-center" >
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let emp of employees">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.username }}</td>
+            <td>{{ emp.email}}</td>
+            <td>{{ emp.password_digest }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="openForm(emp)">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="showdelete(emp.id)">   Delete </button>
+            </td>
+
+             <!-- <td>
+      
+      <nav>
+        details
+      </nav>
+            </td> -->
+              <td>
+             <a routerLink="/list" routerLinkActive="active" (click)="showdetails(emp)"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+</svg>  </a>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+    <div class="form-wrapper" *ngIf="showForm">
+      <div class="mobile-form">
+        <h2  class="text-center text-info">{{formHeader}}</h2>
+          
+         
+        <!-- <div class="group">
+          <label for="name"> Id :</label>
+          <input type=" number" class="form-control"[(ngModel)]="id"name="ram" required min="1">
+        </div> -->
+
+        <div class="group">
+          <label for="name"> Name :</label>
+          <input type=" text" class="form-control"[(ngModel)]="username"name="name" required minlength="4">
+        </div>
+       
+        <div class="group">
+          <label for="email">Email :</label>
+          <input type=" email" class="form-control"[(ngModel)]="email"name="email" required minlength="8">
+        </div>
+        
+
+        <div class="group">
+          <label for="password">Password :</label>
+          <input type=" password" class="form-control"[(ngModel)]="password_digest"name="password" required minlength="8">
+        </div>
+
+        <div class="action">
+           <button class="btn btn-primary save" (click)="saveEmployee()" >Save Changes</button>
+           <button class="btn btn-danger cance " (click)="closeForm()">Cancel</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="deleteform" class="form-wrapper">
+<div class="delete" >
+      <h2>Do you want to delete permnently</h2>
+      <div class="action">
+      <button class="btn btn-primary" (click)="no()"> No</button>
+       <button class="btn btn-danger"(click)="ok()"> Yes</button>
+         </div>
+    </div>
+    </div>
+    
+   <ng-template #err>
+      <h2 class="text-danger">Error : url not Found</h2>
+    </ng-template>
+
+
+   
+     
+
+     
+  </body>
+
+ 
+
+</html>
